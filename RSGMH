@@ -1,22 +1,24 @@
 local Player = game.Players.LocalPlayer
 local GUI = Instance.new("ScreenGui", Player.PlayerGui)
 
-local Frame = Instance.new("Frame", GUI)
-Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
-Frame.Position = UDim2.new(0.35, 0, 0.3, 0)
-Frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-Frame.Active = true
-Frame.Draggable = true
+local TitleFrame = Instance.new("Frame", GUI)
+TitleFrame.Size = UDim2.new(0.6, 0, 0.1, 0)
+TitleFrame.Position = UDim2.new(0.3, 0, 0.3, 0)
+TitleFrame.BackgroundColor3 = Color3.new(0, 0, 0)
+TitleFrame.Active = true
+TitleFrame.Draggable = true
 
-local Title = Instance.new("TextLabel", Frame)
-Title.Size = UDim2.new(1, 0, 0.2, 0)
+local Title = Instance.new("TextLabel", TitleFrame)
+Title.Size = UDim2.new(0.7, 0, 1, 0)
 Title.Position = UDim2.new(0, 0, 0, 0)
 Title.Text = "Remote Control Scripts"
 Title.TextColor3 = Color3.new(1, 1, 1)
-Title.BackgroundColor3 = Color3.new(0, 0, 0)
+Title.BackgroundTransparency = 1
 Title.TextScaled = true
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.TextWrapped = true
 
-local CloseButton = Instance.new("TextButton", Title)
+local CloseButton = Instance.new("TextButton", TitleFrame)
 CloseButton.Size = UDim2.new(0.1, 0, 1, 0)
 CloseButton.Position = UDim2.new(0.9, 0, 0, 0)
 CloseButton.Text = "X"
@@ -27,18 +29,25 @@ CloseButton.MouseButton1Click:Connect(function()
     GUI:Destroy()
 end)
 
-local ToggleButton = Instance.new("TextButton", Title)
+local ToggleButton = Instance.new("TextButton", TitleFrame)
 ToggleButton.Size = UDim2.new(0.1, 0, 1, 0)
 ToggleButton.Position = UDim2.new(0.8, 0, 0, 0)
 ToggleButton.Text = "-"
 ToggleButton.TextColor3 = Color3.new(0, 0, 0)
 ToggleButton.BackgroundColor3 = Color3.new(1, 1, 0)
 
-local ScriptList = Instance.new("ScrollingFrame", Frame)
-ScriptList.Size = UDim2.new(1, 0, 0.6, 0)
-ScriptList.Position = UDim2.new(0, 0, 0.2, 0)
+local MainFrame = Instance.new("Frame", GUI)
+MainFrame.Size = UDim2.new(0.6, 0, 0.4, 0)
+MainFrame.Position = UDim2.new(0.3, 0, 0.4, 0)
+MainFrame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+MainFrame.Visible = true
+
+local ScriptList = Instance.new("ScrollingFrame", MainFrame)
+ScriptList.Size = UDim2.new(1, 0, 1, 0)
+ScriptList.Position = UDim2.new(0, 0, 0, 0)
 ScriptList.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScriptList.BackgroundTransparency = 1
+ScriptList.ScrollBarThickness = 8
 
 local function createButton(parent, text, position, script)
     local button = Instance.new("TextButton", parent)
@@ -59,6 +68,12 @@ local scripts = {
     {name = "Скрипт 2", script = "print('Скрипт 2 запущен')"},
     {name = "Скрипт 3", script = "print('Скрипт 3 запущен')"},
     {name = "Скрипт 4", script = "for i = 1, 5 do print(i) end"},
+    {name = "Скрипт 5", script = "print('Скрипт 5 запущен')"},
+    {name = "Скрипт 6", script = "print('Скрипт 6 запущен')"},
+    {name = "Скрипт 7", script = "print('Скрипт 7 запущен')"},
+    {name = "Скрипт 8", script = "print('Скрипт 8 запущен')"},
+    {name = "Скрипт 9", script = "print('Скрипт 9 запущен')"},
+    {name = "Скрипт 10", script = "print('Скрипт 10 запущен')"},
 }
 
 for i, scriptData in ipairs(scripts) do
@@ -68,17 +83,25 @@ end
 
 local isMinimized = false
 
+local function updateMainFramePosition()
+    MainFrame.Position = UDim2.new(TitleFrame.Position.X.Scale, TitleFrame.Position.X.Offset, TitleFrame.Position.Y.Scale + TitleFrame.Size.Y.Scale, TitleFrame.Position.Y.Offset)
+end
+
+TitleFrame.Changed:Connect(function(property)
+    if property == "Position" then
+        updateMainFramePosition()
+    end
+end)
+
+updateMainFramePosition()
+
 ToggleButton.MouseButton1Click:Connect(function()
     if isMinimized then
-        ScriptList.Visible = true
-        Frame.BackgroundTransparency = 0
-        Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+        MainFrame.Visible = true
         ToggleButton.Text = "-"
         isMinimized = false
     else
-        ScriptList.Visible = false
-        Frame.BackgroundTransparency = 1
-        Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+        MainFrame.Visible = false
         ToggleButton.Text = "+"
         isMinimized = true
     end
