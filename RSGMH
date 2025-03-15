@@ -1,0 +1,85 @@
+local Player = game.Players.LocalPlayer
+local GUI = Instance.new("ScreenGui", Player.PlayerGui)
+
+local Frame = Instance.new("Frame", GUI)
+Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+Frame.Position = UDim2.new(0.35, 0, 0.3, 0)
+Frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+Frame.Active = true
+Frame.Draggable = true
+
+local Title = Instance.new("TextLabel", Frame)
+Title.Size = UDim2.new(1, 0, 0.2, 0)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Text = "Remote Control Scripts"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.BackgroundColor3 = Color3.new(0, 0, 0)
+Title.TextScaled = true
+
+local CloseButton = Instance.new("TextButton", Title)
+CloseButton.Size = UDim2.new(0.1, 0, 1, 0)
+CloseButton.Position = UDim2.new(0.9, 0, 0, 0)
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
+CloseButton.BackgroundColor3 = Color3.new(0.5, 0, 0)
+
+CloseButton.MouseButton1Click:Connect(function()
+    GUI:Destroy()
+end)
+
+local ToggleButton = Instance.new("TextButton", Title)
+ToggleButton.Size = UDim2.new(0.1, 0, 1, 0)
+ToggleButton.Position = UDim2.new(0.8, 0, 0, 0)
+ToggleButton.Text = "-"
+ToggleButton.TextColor3 = Color3.new(0, 0, 0)
+ToggleButton.BackgroundColor3 = Color3.new(1, 1, 0)
+
+local ScriptList = Instance.new("ScrollingFrame", Frame)
+ScriptList.Size = UDim2.new(1, 0, 0.6, 0)
+ScriptList.Position = UDim2.new(0, 0, 0.2, 0)
+ScriptList.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScriptList.BackgroundTransparency = 1
+
+local function createButton(parent, text, position, script)
+    local button = Instance.new("TextButton", parent)
+    button.Size = UDim2.new(0.9, 0, 0, 30)
+    button.Position = position
+    button.Text = text
+    button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.TextScaled = true
+
+    button.MouseButton1Click:Connect(function()
+        loadstring(script)()
+    end)
+end
+
+local scripts = {
+    {name = "Скрипт 1", script = "print('Скрипт 1 запущен')"},
+    {name = "Скрипт 2", script = "print('Скрипт 2 запущен')"},
+    {name = "Скрипт 3", script = "print('Скрипт 3 запущен')"},
+    {name = "Скрипт 4", script = "for i = 1, 5 do print(i) end"},
+}
+
+for i, scriptData in ipairs(scripts) do
+    createButton(ScriptList, scriptData.name, UDim2.new(0.05, 0, 0, (i-1)*35), scriptData.script)
+    ScriptList.CanvasSize = UDim2.new(0, 0, 0, i * 35)
+end
+
+local isMinimized = false
+
+ToggleButton.MouseButton1Click:Connect(function()
+    if isMinimized then
+        ScriptList.Visible = true
+        Frame.BackgroundTransparency = 0
+        Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+        ToggleButton.Text = "-"
+        isMinimized = false
+    else
+        ScriptList.Visible = false
+        Frame.BackgroundTransparency = 1
+        Frame.Size = UDim2.new(0.3, 0, 0.4, 0)
+        ToggleButton.Text = "+"
+        isMinimized = true
+    end
+end)
