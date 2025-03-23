@@ -71,6 +71,7 @@ local scripts = {
     {name = "NamelessAdmin2.0", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code"))()'},
     {name = "Comet", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/Comet"))()'},
     {name = "Harked Reborn", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/JxcExploit/Harkedv2-script/main/Leaked-v2hardked"))()'},
+    {name = "Destructed_Hex's", script = 'loadstring(game:HttpGet("https://github.com/sovetskii-shashlik/Destructed-hex/raw/refs/heads/main/Destructed%20hex%20gui"))()'},
 }
 
 for i, scriptData in ipairs(scripts) do
