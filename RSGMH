@@ -157,8 +157,8 @@ local function createButton(parent, text, position, script)
 end
 
 local scripts = {
-    {name = "RKT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()'},
-    {name = "RTT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool"))()'},
+    {name = "RTT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()'},
+    {name = "RKT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool"))()'},
     {name = "QuirkyCMD", script = 'loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()'},
     {name = "Krunox", script = 'loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()'},
     {name = "Cmd admin", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/cmd/main/testing-main.lua"))()'},
