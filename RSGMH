@@ -53,8 +53,6 @@ applyStyle(TitleFrame, {
     Position = UDim2.new(0.3, 0, 0.3, 0),
     BackgroundColor3 = Color3.new(0.1, 0.1, 0.1),
     BorderSizePixel = 0,
-    Active = true,
-    Draggable = true,
     ClipsDescendants = true,
 })
 createShadow(TitleFrame)
@@ -196,5 +194,7 @@ TitleFrame.Changed:Connect(function(property)
         updateMainFramePosition()
     end
 end)
+
+local dragDetector = Instance.new("UIDragDetector", TitleFrame)
 
 updateMainFramePosition()
