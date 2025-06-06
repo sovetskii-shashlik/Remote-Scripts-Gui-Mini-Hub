@@ -158,7 +158,7 @@ local scripts = {
     {name = "RTT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/refs/heads/main/RTT%20Tool"))()'},
     {name = "RKT Tool", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/sovetskii-shashlik/RTT-Tool/main/RKT%20Tool"))()'},
     {name = "QuirkyCMD", script = 'loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()'},
-    {name = "Krunox", script = 'loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Krunox-13336"))()'},
+    {name = "Strawberry", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/C-Dr1ve/Strawberry/refs/heads/main/Scanner_Source/V1.5.lua"))()'},
     {name = "Cmd admin", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/cmd/main/testing-main.lua"))()'},
     {name = "NamelessAdmin2.0", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/toyahfur/Nameless-Admin-2.0/main/unfinished-source-code"))()'},
     {name = "Comet", script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/Comet"))()'},
