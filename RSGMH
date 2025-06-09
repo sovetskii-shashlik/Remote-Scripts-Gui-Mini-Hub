@@ -1,3 +1,4 @@
+--// Скрипт был предназначен для хранения админок, которые используют абьюз ремоут эвентов. по сути убийство игрока,кик, бан, мут, удаление карты и многое другое. 
 local Player = game.Players.LocalPlayer
 local GUI = Instance.new("ScreenGui", Player.PlayerGui)
 GUI.ResetOnSpawn = false
